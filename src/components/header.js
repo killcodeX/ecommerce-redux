@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function header() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light">
+    <nav className="navbar fixed navbar-expand-lg navbar-light">
       <div className="container">
         <Link className="navbar-brand" to="/">
           YourShop

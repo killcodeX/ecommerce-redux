@@ -7,8 +7,8 @@ import {Header} from './components';
 function App() {
   return (
     <Router>
+      <Header/>
       <Switch>
-        <Header/>
         <Route exact path="/" component={MainPage}/>
         <Route exact path="/login" component={Login} />
         <Route path="*" component={Error}/>
