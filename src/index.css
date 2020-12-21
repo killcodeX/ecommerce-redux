@@ -21,3 +21,33 @@
 }
 
 
+/* ------------------------------------------------ For Products ----------------------------------------------------- */
+
+.card {
+  padding: 10px;
+  min-height: 340px;
+}
+.card-head{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.card-head img{
+  /* display: block;
+  margin: auto; */
+  width:35%;
+  min-height: 150px;
+}
+
+.card-head p{
+  font-size: 13px;
+}
+
+
+/* for footer */
+
+.brdr {
+  display: flex;
+  justify-content: center;
+}

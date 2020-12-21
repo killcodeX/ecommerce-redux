@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Login, Error } from "./auth";
 import { MainPage } from "./Pages";
-import {Header} from './components';
+import {Header, Footer} from './components';
 
 function App() {
   return (
@@ -13,6 +13,7 @@ function App() {
         <Route exact path="/login" component={Login} />
         <Route path="*" component={Error}/>
       </Switch>
+      <Footer/>
     </Router>
   );
 }
