@@ -1,9 +1,11 @@
 import React from 'react';
+import DisplayProducts from './displayProducts';
 
 export default function mainPage() {
     return (
-        <div>
-            This is main page
-        </div>
+        <>
+            <p>hello world</p>
+            <DisplayProducts/>
+        </>
     )
 }
