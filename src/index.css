@@ -24,28 +24,49 @@
 /* ------------------------------------------------ For Products ----------------------------------------------------- */
 
 .card {
-  padding: 10px;
-  min-height: 340px;
+  padding: 15px 30px;
+  min-height: 390px;
 }
+
 .card-head{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  text-align: center;
 }
+
 .card-head img{
-  /* display: block;
-  margin: auto; */
-  width:35%;
-  min-height: 150px;
+  display: block;
+  margin: auto;
+  width:150px;
+  height: 150px;
+  min-height: 50px;
 }
 
 .card-head p{
   font-size: 13px;
 }
 
+.coll-btn{
+  width:150px;
+}
 
-/* for footer */
+.coll-btn:focus{
+  border: none;
+  outline: none;
+  
+}
+
+.card-down{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding-top: 30px;
+}
+
+
+
+/* ------------------------------------------------ For Products ----------------------------------------------------- */
 
 .brdr {
   display: flex;
