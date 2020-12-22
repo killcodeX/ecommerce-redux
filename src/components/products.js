@@ -26,7 +26,7 @@ export default function Products(props) {
           </div>
         </div>
         <div className='card-down'>
-            <AddToCart/>
+            <AddToCart id={data.id}/>
             <p className='mt-3 font-weight-bold'>{'$' + data.price}</p>
         </div>
       </div>
