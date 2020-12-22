@@ -5,13 +5,13 @@ import { AddToCart } from "../components";
 
 export default function ProductPage() {
   return (
-    <div className="section product-page mt-5">
+    <section className="section height-100 mt-5">
       <div className="container">
         <div className="row">
-          <div className="col-6 brdr">
+          <div className="col-sm-12 col-lg-6 brdr">
             <img className="product-image" src={Data.image} alt={Data.tile} />
           </div>
-          <div className="col-6 pt-5">
+          <div className="col-sm-12 col-lg-6 pt-5">
             <h2 className="pb-4">{Data.title}</h2>
             <p>
               <strong>Category : </strong>
@@ -27,13 +27,13 @@ export default function ProductPage() {
             </p>
             <div className="card-down">
               <AddToCart id={Data.id} />
-              <Link to="/" type="button" className="btn-buy" style={{textDecoration:'none'}}>
-                Add To Cart
-              </Link>
+              <button type="button" className="btn-buy" style={{textDecoration:'none'}}>
+                <i className="fas fa-cart-plus"></i> Add To Cart
+              </button>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

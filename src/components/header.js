@@ -9,8 +9,8 @@ export default function header() {
           YourShop
         </Link>
         <div className='ml-auto'>
-            <Link className='nav-item' to='/'><i className="fas fa-shopping-cart"></i></Link>
-            <Link className='nav-item ml-3' to='/'>User</Link>
+            <Link className='nav-item' to='/cart' style={{ textDecoration: 'none' }}><i className="fas fa-shopping-cart"></i></Link>
+            <Link className='nav-item ml-3' to='/'style={{ textDecoration: 'none' }}> User</Link>
         </div>
       </div>
     </nav>

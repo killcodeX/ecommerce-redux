@@ -6,7 +6,7 @@ export default function Products(props) {
   return (
     <div className="col-sm-12 col-lg-3 mb-4">
       <Link to="/product" style={{ textDecoration: 'none' }}>
-        <div className="card shadow">
+        <div className="card shadow product-card">
           <div className="card-head ">
             <img src={data.image} alt={data.title} />
             <div className="card-detail pt-4">

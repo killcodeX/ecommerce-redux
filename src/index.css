@@ -3,11 +3,18 @@
 :root {
   --main-bg-color: black;
   --btn-color: #3454D1;
+  --btn-buy-color: #11BF8B;
+  --btn-remove : #FF4345;
 }
 
 .brdr {
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+
+.height-100{
+  min-height: 71vh;
 }
 
 /* ------------------------------------------------ For Header ----------------------------------------------------- */
@@ -29,7 +36,7 @@
 
 /* ------------------------------------------------ For Products ----------------------------------------------------- */
 
-.card {
+.product-card{
   padding: 15px 30px;
   min-height: 440px;
   color:  var(--main-bg-color);
@@ -84,10 +91,6 @@
 
 
 /* ------------------------------------------------ For Products ----------------------------------------------------- */
-.product-page{
-  min-height: 70vh;
-}
-
 
 .product-image{
   width:50%;
@@ -101,6 +104,7 @@
 
 .btn-buy{
   padding: 5px 25px !important;
+  background: transparent;
   border: 1px solid var(--btn-color);
   border-radius: 5px;
   color: var(--btn-color);
@@ -110,3 +114,63 @@
   background-color: var(--btn-color);
   color: white;
 }
+
+.btn-buy:focus{
+  outline: none;
+  -webkit-box-shadow: none;
+}
+
+
+/* ------------------------------------------------ For Cart ----------------------------------------------------- */
+
+.cart-card{
+  padding: 20px;
+}
+
+.cart-image{
+  width:30%;
+}
+
+.buy-rem{
+  display: flex;
+  align-items: center;
+}
+
+.btn-cart{
+  padding: 5px 25px !important;
+  background: transparent;
+  border: 1px solid var(--btn-buy-color);
+  border-radius: 5px;
+  color: var(--btn-buy-color);
+}
+
+.btn-cart:hover{
+  background-color: var(--btn-buy-color);
+  color: white;
+}
+
+.btn-cart:focus{
+  outline: none;
+  -webkit-box-shadow: none;
+}
+
+.btn-cart-rem{
+  padding: 5px 25px !important;
+  background: transparent;
+  border: 1px solid var(--btn-remove);
+  border-radius: 5px;
+  color: var(--btn-remove);
+}
+
+.btn-cart-rem:hover{
+  background-color: var(--btn-remove);
+  color: white;
+}
+
+.btn-cart-rem:focus{
+  outline: none;
+  -webkit-box-shadow: none;
+}
+
+
+/* ------------------------------------------------ For Footer ----------------------------------------------------- */

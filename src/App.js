@@ -1,20 +1,21 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Login, Error } from "./auth";
-import { MainPage, ProductPage } from "./Pages";
-import {Header, Footer} from './components';
+import { MainPage, ProductPage, Cart } from "./Pages";
+import { Header, Footer } from "./components";
 
 function App() {
   return (
     <Router>
-      <Header/>
+      <Header />
       <Switch>
-        <Route exact path="/" component={MainPage}/>
+        <Route exact path="/" component={MainPage} />
         <Route exact path="/login" component={Login} />
-        <Route path="/product" component={ProductPage}/>
-        <Route path="*" component={Error}/>
+        <Route path="/product" component={ProductPage} />
+        <Route path="/cart" component={Cart} />
+        <Route path="*" component={Error} />
       </Switch>
-      <Footer/>
+      <Footer />
     </Router>
   );
 }
