@@ -2,6 +2,12 @@
 
 :root {
   --main-bg-color: black;
+  --btn-color: #3454D1;
+}
+
+.brdr {
+  display: flex;
+  justify-content: center;
 }
 
 /* ------------------------------------------------ For Header ----------------------------------------------------- */
@@ -25,7 +31,8 @@
 
 .card {
   padding: 15px 30px;
-  min-height: 390px;
+  min-height: 440px;
+  color:  var(--main-bg-color);
 }
 
 .card-head{
@@ -44,24 +51,7 @@
 }
 
 .card-head p{
-  font-size: 13px;
-}
-
-.coll-btn{
-  width:150px;
-}
-
-.coll-btn:focus{
-  border: none;
-  outline: none;
-  
-}
-
-.card-down{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  padding-top: 30px;
+  font-size: 15px;
 }
 
 /* ------------------- Add cart --------------------- */
@@ -94,8 +84,29 @@
 
 
 /* ------------------------------------------------ For Products ----------------------------------------------------- */
+.product-page{
+  min-height: 70vh;
+}
 
-.brdr {
+
+.product-image{
+  width:50%;
+}
+
+.card-down{
   display: flex;
-  justify-content: center;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.btn-buy{
+  padding: 5px 25px !important;
+  border: 1px solid var(--btn-color);
+  border-radius: 5px;
+  color: var(--btn-color);
+}
+
+.btn-buy:hover{
+  background-color: var(--btn-color);
+  color: white;
 }
