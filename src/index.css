@@ -64,6 +64,33 @@
   padding-top: 30px;
 }
 
+/* ------------------- Add cart --------------------- */
+
+.add-cart{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.add-cart-btn{
+  background: transparent;
+  border: none;
+  font-weight: bold;
+  font-size: 22px;
+  padding: 5px 10px;
+}
+
+.add-cart-btn:focus{
+  border: none;
+  outline: none;
+  -webkit-box-shadow: none;
+}
+
+.add-cart-p{
+  margin-top: 15px;
+  padding: 5px 10px;
+  border: 1px solid #BA8A91;
+}
 
 
 /* ------------------------------------------------ For Products ----------------------------------------------------- */
