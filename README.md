@@ -1,5 +1,5 @@
-# GitHub Jobs
-GitHub Jobs is based on React and Context API to look for a job posted in GitHub, It uses GitHub Public API for the data, and uses the Ant Design FrameWork for the UI.
+# YourShop 
+The YourShop app is e-commerce based on React and Redux, which uses [Fake Store Api](https://fakestoreapi.com). You can add it to your cart and check out to the cart.
 ## Installation
 
 Use the package manager [npm](https://www.npmjs.com) to install SpaceX Rocket Ship History.
@@ -21,11 +21,11 @@ http://localhost:3000
 
 ## Technology Stack Used
  * React
- * AntDesign Framework
- * Context Api
+ * Bootstrap
+ * Redux, Redux Thunk
 
 ## Live Demo
-You can also check the demo on [GitHub Jobs](https://react-github-jobs-101.netlify.app)
+You can also check the demo on [Ecommerce Website](https://yourshop-react.netlify.app)
 
 ## ScreenShots
-![Time Tracking](https://github.com/killcodeX/githubJobs/blob/master/public/screen.png)
+![Lyrics Sniffer](https://github.com/killcodeX/ecommerce-redux/blob/master/public/screen.png)
