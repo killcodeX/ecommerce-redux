@@ -1,5 +1,6 @@
 import getProductsAPI from './products/AllProducts';
+import getSingleProductsAPI from './products/singleProduct'
 
 
 
-export {getProductsAPI};
+export {getProductsAPI, getSingleProductsAPI};

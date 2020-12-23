@@ -11,9 +11,8 @@ export default async function getProductsAPI() {
     try {
       const request=  await axios(config)
       const {data: response} = request;
-      //console.log(request)
-        if(response > 0){
-            return  response.data
+        if(response.length > 0){
+            return  response
         }
        return false;
   

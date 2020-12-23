@@ -1,8 +1,8 @@
-import {GetProducts} from '../actions/actionConstant';
+import {GetProducts, GetSingleProducts} from '../actions/actionConstant';
 
 const initialState = {
     Products: [],
-    Product: [],
+    Product: false,
   };
 
 
@@ -13,7 +13,13 @@ const ProductReducer = (state = initialState, action) => {
       case GetProducts:
         return {
           ...state,
-          Products : [action.payload]
+          Products : action.payload
+        }
+
+        case GetSingleProducts:
+        return {
+          ...state,
+          Product : action.payload
         }
   
       default:
