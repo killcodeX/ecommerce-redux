@@ -1,4 +1,4 @@
-# YourShop 
+# YourShop (In Development)
 The YourShop app is e-commerce based on React and Redux, which uses [Fake Store Api](https://fakestoreapi.com). You can add it to your cart and check out to the cart.
 ## Installation
 
