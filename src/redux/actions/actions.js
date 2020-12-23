@@ -1,4 +1,4 @@
-import { GetProducts, GetSingleProducts } from "./actionConstant";
+import { GetProducts, GetSingleProducts, BuyProduct } from "./actionConstant";
 import { getProductsAPI, getSingleProductsAPI } from "../../api";
 
 // actions
@@ -17,3 +17,10 @@ export const getSingleProduct = (id) => async (dispatch) => {
     payload: result,
   });
 };
+
+export const buyProduct = (data) => {
+    return {
+        type: BuyProduct,
+        payload: data
+    }
+  };

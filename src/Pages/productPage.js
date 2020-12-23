@@ -33,16 +33,9 @@ export default function ProductPage(props) {
                 <strong>Price : </strong>
                 {"$" + Data.price}
               </p>
-              <div className="card-down">
+              {/* <div className="card-down"> */}
                 <AddToCart id={Data.id} />
-                <button
-                  type="button"
-                  className="btn-buy"
-                  style={{ textDecoration: "none" }}
-                >
-                  <i className="fas fa-cart-plus"></i> Add To Cart
-                </button>
-              </div>
+              {/* </div> */}
             </div>
           </div>
         </div>
