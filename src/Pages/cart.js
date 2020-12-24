@@ -1,16 +1,16 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import Data from "../mockSingleProduct";
+import React, { useEffect } from "react";
+import { CartCard, PaymentCard } from "../components";
+import { useSelector, useDispatch } from "react-redux";
+import { cartProduct } from "../redux/actions/actions";
 
 export default function Cart() {
-  const [loader, setLoader] = useState(false);
+  const dispatch = useDispatch();
+  const buyProduct = useSelector((state) => state.Products.buyProduct);
+  const totalItem = useSelector((state) => state.Products.TotalProduct);
 
-  const handlePayment = () => {
-    setLoader(true);
-    setTimeout(() => {
-      setLoader(false);
-    }, 2000);
-  };
+  useEffect(() => {
+    dispatch(cartProduct());
+  }, []);
 
   return (
     <section className="section height-100">
@@ -18,45 +18,26 @@ export default function Cart() {
         <h2 className="mt-3 mb-3">Your Cart</h2>
         <hr />
         <div className="row">
+          <PaymentCard />
           <div className="col-12">
-            <div className="card cart-card">
-              <div className="row">
-                <div className="col-sm-12 col-lg-6 brdr">
-                  <img
-                    className="cart-image"
-                    src={Data.image}
-                    alt={Data.tile}
+            <h3 className="mt-3 mb-3">Selected Products</h3>
+            <hr />
+            {totalItem.length !== 0 ? (
+              totalItem.map((Data) => {
+                const totalSelected = buyProduct.filter(
+                  (item) => item.id !== Data.id
+                );
+                return (
+                  <CartCard
+                    key={Data.id}
+                    Data={Data}
+                    totalSelected={totalSelected}
                   />
-                </div>
-                <div className="col-sm-12 col-lg-6 pt-3">
-                  <h4 className="pb-4">{Data.title}</h4>
-                  <p>
-                    <strong>No of Items : </strong>2
-                  </p>
-                  <p>
-                    <strong> Total Price : </strong>
-                    {"$" + Data.price}
-                  </p>
-                  <div className="buy-rem">
-                    <button
-                      type="button"
-                      className="btn-cart"
-                      style={{ textDecoration: "none" }}
-                      onClick={() => handlePayment()}
-                    >
-                      {loader? 'loading...' : <span>Proceed To Pay <i className="far fa-credit-card"></i></span>}
-                    </button>
-                    <button
-                      type="button"
-                      className="btn-cart-rem ml-3"
-                      style={{ textDecoration: "none" }}
-                    >
-                      Remove from cart <i className="fas fa-trash"></i>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
+                );
+              })
+            ) : (
+              <h2 className="brdr">No Item Selected</h2>
+            )}
           </div>
         </div>
       </div>

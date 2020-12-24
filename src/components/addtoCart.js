@@ -7,7 +7,7 @@ export default function AddtoCart(props) {
   const { id } = props;
   const [addCart, setAddCart] = useState(0);
 
-  const add = (e) => {
+  const add = () => {
     const data = {
       id: id,
       numberOfProduct: addCart,

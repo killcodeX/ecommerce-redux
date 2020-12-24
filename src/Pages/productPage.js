@@ -6,10 +6,9 @@ import { getSingleProduct } from "../redux/actions/actions";
 export default function ProductPage(props) {
   const dispatch = useDispatch();
   const Data = useSelector((state) => state.Products.Product);
-  console.log(Data)
   useEffect(() => {
     dispatch(getSingleProduct(props.match.params.id));
-  }, []);
+  }, [props.match.params.id]);
 
   if (Data) {
     return (

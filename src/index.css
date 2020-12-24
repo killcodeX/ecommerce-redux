@@ -173,5 +173,12 @@
   -webkit-box-shadow: none;
 }
 
+.card-payment{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
 
 /* ------------------------------------------------ For Footer ----------------------------------------------------- */

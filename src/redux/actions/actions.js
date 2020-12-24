@@ -1,4 +1,4 @@
-import { GetProducts, GetSingleProducts, BuyProduct } from "./actionConstant";
+import { GetProducts, GetSingleProducts, BuyProduct, CartProduct, RemovefromCart } from "./actionConstant";
 import { getProductsAPI, getSingleProductsAPI } from "../../api";
 
 // actions
@@ -22,5 +22,19 @@ export const buyProduct = (data) => {
     return {
         type: BuyProduct,
         payload: data
+    }
+  };
+
+  export const cartProduct = () => {
+    return {
+        type: CartProduct,
+    }
+  };
+
+  export const removefromCart = (id) => {
+    console.log(id)
+    return {
+        type: RemovefromCart,
+        payload: id
     }
   };
