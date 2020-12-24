@@ -1,4 +1,14 @@
-import { GetProducts, GetSingleProducts, BuyProduct, CartProduct, RemovefromCart, TotalAmount, TotalproductToBuy } from "./actionConstant";
+import {
+  GetProducts,
+  GetSingleProducts,
+  BuyProduct,
+  CartProduct,
+  RemovefromCart,
+  TotalAmount,
+  TotalproductToBuy,
+  Login,
+  Logout,
+} from "./actionConstant";
 import { getProductsAPI, getSingleProductsAPI } from "../../api";
 
 // actions
@@ -19,34 +29,48 @@ export const getSingleProduct = (id) => async (dispatch) => {
 };
 
 export const buyProduct = (data) => {
-    return {
-        type: BuyProduct,
-        payload: data
-    }
+  return {
+    type: BuyProduct,
+    payload: data,
   };
+};
 
-  export const cartProduct = () => {
-    return {
-        type: CartProduct,
-    }
+export const cartProduct = () => {
+  return {
+    type: CartProduct,
   };
+};
 
-  export const totalAmount = () => {
-    return {
-        type: TotalAmount,
-    }
+export const totalAmount = () => {
+  return {
+    type: TotalAmount,
   };
+};
 
-  export const totalproductToBuy = () => {
-    return {
-        type: TotalproductToBuy,
-    }
+export const totalproductToBuy = () => {
+  return {
+    type: TotalproductToBuy,
   };
+};
 
-  export const removefromCart = (id) => {
-    console.log(id)
-    return {
-        type: RemovefromCart,
-        payload: id
-    }
+export const removefromCart = (id) => {
+  return {
+    type: RemovefromCart,
+    payload: id,
   };
+};
+
+// for Authentication
+
+export const userLogin = (data) => {
+  return {
+    type: Login,
+    payload: data,
+  };
+};
+
+export const userLogout = () => {
+  return {
+    type: Logout,
+  };
+};

@@ -62,7 +62,6 @@ const ProductReducer = (state = initialState, action) => {
       state.TotalProduct.map(product => {
         state.buyProduct.map(item => {
           if(item.id === product.id){
-            console.log()
             total.push(product.price * item.numberOfProduct)
           }
         })
