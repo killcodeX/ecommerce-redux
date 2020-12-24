@@ -11,9 +11,10 @@ export default function Login() {
   };
   return (
     <section className="section height-100 brdr">
-      <div className="card shadow cart-card">
+      <div className="card shadow login login-card">
+          <img className='user-img' src='/user.jpg' alt='user' />
         <form onSubmit={handleSubmit}>
-          <div className="form-group">
+          <div className="form-group pt-4">
             <label htmlFor="exampleInputEmail1">Email address</label>
             <input
               type="email"
