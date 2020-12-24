@@ -1,18 +1,26 @@
 import React, { useState } from "react";
+import { userLogin } from "../redux/actions/actions";
+import { useDispatch } from "react-redux";
 
 export default function Login() {
+  const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(email);
-    console.log(password);
+    const data = {
+      email: email,
+      password: password,
+    };
+
+    dispatch(userLogin(data));
   };
+
   return (
     <section className="section height-100 brdr">
       <div className="card shadow login login-card">
-          <img className='user-img' src='/user.jpg' alt='user' />
+        <img className="user-img" src="/user.jpg" alt="user" />
         <form onSubmit={handleSubmit}>
           <div className="form-group pt-4">
             <label htmlFor="exampleInputEmail1">Email address</label>
