@@ -76,8 +76,11 @@ const ProductReducer = (state = initialState, action) => {
     case RemovefromCart:
       return {
         ...state,
+        TotalProduct: state.TotalProduct.filter(
+          (product) => product.id !== action.payload
+        ),
         buyProduct: state.buyProduct.filter(
-          (product) => product.id !== action.payload.id
+          (product) => product.id !== action.payload
         ),
       };
 

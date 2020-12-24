@@ -16,12 +16,12 @@ export default function Cart() {
     dispatch(cartProduct());
     dispatch(totalAmount());
     dispatch(totalproductToBuy());
-  }, []);
+  }, [dispatch]);
 
   return (
     <section className="section height-100">
       <div className="container">
-        <h2 className="mt-3 mb-3">Your Cart</h2>
+        <h2 className="mt-3 mb-3 brdr">Your Cart</h2>
         <hr />
         <div className="row">
           <PaymentCard />
