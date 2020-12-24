@@ -1,7 +1,11 @@
 import React, { useEffect } from "react";
 import { CartCard, PaymentCard } from "../components";
 import { useSelector, useDispatch } from "react-redux";
-import { cartProduct } from "../redux/actions/actions";
+import {
+  cartProduct,
+  totalAmount,
+  totalproductToBuy,
+} from "../redux/actions/actions";
 
 export default function Cart() {
   const dispatch = useDispatch();
@@ -10,6 +14,8 @@ export default function Cart() {
 
   useEffect(() => {
     dispatch(cartProduct());
+    dispatch(totalAmount());
+    dispatch(totalproductToBuy());
   }, []);
 
   return (
@@ -25,7 +31,7 @@ export default function Cart() {
             {totalItem.length !== 0 ? (
               totalItem.map((Data) => {
                 const totalSelected = buyProduct.filter(
-                  (item) => item.id !== Data.id
+                  (item) => item.id === Data.id
                 );
                 return (
                   <CartCard
