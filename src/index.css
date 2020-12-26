@@ -33,6 +33,15 @@
   font-size: 17px;
 }
 
+/* ------------------- erro page --------------------- */
+
+.error-pa{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 
 /* ------------------------------------------------ For Products ----------------------------------------------------- */
 

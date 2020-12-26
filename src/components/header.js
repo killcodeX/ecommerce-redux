@@ -1,12 +1,15 @@
 import React from "react";
-import { Link, Redirect, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import {userLogout} from '../redux/actions/actions';
+import { userLogout } from "../redux/actions/actions";
 
 export default function Header() {
   const dispatch = useDispatch();
-  const history = useHistory();
   const loggedIn = useSelector((state) => state.Auth.loggedIn);
+
+  const handleLogOut = () => {
+    dispatch(userLogout());
+  };
 
   return (
     <nav className="navbar fixed navbar-expand-lg navbar-light">
@@ -16,7 +19,7 @@ export default function Header() {
         </Link>
         <div className="ml-auto">
           {loggedIn ? (
-            <>
+            <div>
               <Link
                 className="nav-item"
                 to="/cart"
@@ -24,12 +27,17 @@ export default function Header() {
               >
                 <i className="fas fa-shopping-cart"></i>
               </Link>
-              <button className="nav-item ml-3" onClick={() => dispatch(userLogout())}>Log Out</button>
-            </>
+              <button
+                className="nav-item btn-cart-rem ml-3"
+                onClick={handleLogOut}
+              >
+                Log Out
+              </button>
+            </div>
           ) : (
             <Link
               className="nav-item"
-              to="/login"
+              to="/sign-in"
               style={{ textDecoration: "none" }}
             >
               Login

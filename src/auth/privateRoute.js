@@ -1,16 +1,15 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-export default function privateRoute({ component: Component, ...rest }) {
-  console.log('children', Component)
-  console.log('rest', rest)
-  const isLogin = true;
+export default function PrivateRoute({ component: Component, ...rest }) {
+  const log = useSelector((state) => state.Auth.loggedIn);
   return (
     <Route
       {...rest}
       render={(props) => {
-        return isLogin ? <Component {...props}/> : <Redirect to='/login'/>
+        log ? <Component {...props} /> : <Redirect to='/sign-in' />;
       }}
-    ></Route>
+    />
   );
 }
