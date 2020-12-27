@@ -1,20 +1,17 @@
 import React, { useState } from "react";
-import { } from "../redux/actions/actions";
+import { userLogin } from "../redux/actions/actions";
 import { useDispatch } from "react-redux";
 
-export default function Login() {
+export default function SignUp() {
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const data = {
-      email: email,
-      password: password,
-    };
-
-    
+    console.log(email)
+    console.log(password)
   };
 
   return (
@@ -48,10 +45,24 @@ export default function Login() {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
+          <div className="form-group">
+            <label htmlFor="exampleInputPassword1">Confirm Password</label>
+            <input
+              type="password"
+              className="form-control"
+              id="exampleInputPassword1"
+              placeholder="Password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+            />
+          </div>
           <button type="submit" className="btn btn-primary">
-            Login
+            Sign Up
           </button>
         </form>
+        <div className='w-100 text-center mt-3'>
+            Already Have an Account? Log In
+        </div>
       </div>
     </section>
   );

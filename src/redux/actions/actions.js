@@ -6,10 +6,12 @@ import {
   RemovefromCart,
   TotalAmount,
   TotalproductToBuy,
-  Login,
-  Logout,
 } from "./actionConstant";
+
+
 import { getProductsAPI, getSingleProductsAPI } from "../../api";
+
+
 
 // actions
 export const getProducts = () => async (dispatch) => {
@@ -60,17 +62,4 @@ export const removefromCart = (id) => {
   };
 };
 
-// for Authentication
 
-export const userLogin = (data) => {
-  return {
-    type: Login,
-    payload: data,
-  };
-};
-
-export const userLogout = () => {
-  return {
-    type: Logout,
-  };
-};

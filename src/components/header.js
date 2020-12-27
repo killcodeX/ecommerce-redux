@@ -1,14 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { userLogout } from "../redux/actions/actions";
+import {  } from "../redux/actions/actions";
 
 export default function Header() {
   const dispatch = useDispatch();
   const loggedIn = useSelector((state) => state.Auth.loggedIn);
 
   const handleLogOut = () => {
-    dispatch(userLogout());
   };
 
   return (

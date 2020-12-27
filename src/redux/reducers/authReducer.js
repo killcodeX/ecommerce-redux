@@ -1,32 +1,46 @@
-import { Login, Logout } from "../actions/actionConstant";
+import {
+  LOGIN_REQUEST,
+  LOGIN_SUCCESS,
+  LOGIN_FAILURE,
+  LOGOUT_REQUEST,
+  LOGOUT_SUCCESS,
+  LOGOUT_FAILURE,
+  VERIFY_REQUEST,
+  VERIFY_SUCCESS,
+} from "../actions/actionConstant";
 
 const initialState = {
-  credentials: { email: "aaquib@gmail.com", password: "123" },
-  loggedIn: false,
+  isLoggingIn: false,
+  isLoggingOut: false,
+  isVerifying: false,
+  loginError: false,
+  logoutError: false,
+  isAuthenticated: false,
+  user: {},
 };
 
 // Reducers
 const AuthReducer = (state = initialState, action) => {
   switch (action.type) {
-    case Login:
-      let log = false;
-      if (
-        action.payload.email == state.credentials.email &&
-        action.payload.password == state.credentials.password
-      ) {
-        log = true;
-      } else {
-        alert("wrong credentials");
-      }
+    case LOGIN_REQUEST:
       return {
         ...state,
-        loggedIn: log,
+        isLoggingIn: true,
+        loginError: false,
       };
-
-    case Logout:
+    case LOGIN_SUCCESS:
       return {
         ...state,
-        loggedIn: false,
+        isLoggingIn: false,
+        isAuthenticated: true,
+        user: action.user,
+      };
+    case LOGIN_FAILURE:
+      return {
+        ...state,
+        isLoggingIn: false,
+        isAuthenticated: false,
+        loginError: true,
       };
 
     default:
