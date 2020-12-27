@@ -1,21 +1,25 @@
 import React, { useState } from "react";
-import { } from "../redux/actions/actions";
-import { useDispatch } from "react-redux";
+import { loginUser } from "../redux/actions/authActions";
+import { useDispatch, useSelector } from "react-redux";
+import { Redirect, Link } from "react-router-dom";
 
 export default function Login() {
   const dispatch = useDispatch();
+  const isLoggingIn = useSelector((state) => state.Auth.isLoggingIn);
+  const loginError = useSelector((state) => state.Auth.loginError);
+  const isAuthenticated = useSelector((state) => state.Auth.isAuthenticated);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const data = {
-      email: email,
-      password: password,
-    };
-
-    
+    console.log(email, password)
+    dispatch(loginUser(email, password));
   };
+
+  if (isAuthenticated) {
+    return <Redirect to="/" />;
+  }
 
   return (
     <section className="section height-100 brdr">
@@ -52,6 +56,9 @@ export default function Login() {
             Login
           </button>
         </form>
+        <div className='w-100 text-center mt-3'>
+            Don't Have an Account? {<Link to='/sign-up'>Sign Up</Link>}
+        </div>
       </div>
     </section>
   );

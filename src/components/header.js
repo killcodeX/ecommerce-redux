@@ -1,13 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import {  } from "../redux/actions/actions";
+import { logoutUser } from "../redux/actions/authActions";
 
 export default function Header() {
   const dispatch = useDispatch();
-  const loggedIn = useSelector((state) => state.Auth.loggedIn);
+  const isAuthenticated = useSelector((state) => state.Auth.isAuthenticated);
 
   const handleLogOut = () => {
+    dispatch(logoutUser());
   };
 
   return (
@@ -17,7 +18,7 @@ export default function Header() {
           YourShop
         </Link>
         <div className="ml-auto">
-          {loggedIn ? (
+          {isAuthenticated ? (
             <div>
               <Link
                 className="nav-item"

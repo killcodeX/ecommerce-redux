@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {Link} from 'react-router-dom'
 import { userLogin } from "../redux/actions/actions";
 import { useDispatch } from "react-redux";
 
@@ -61,7 +62,7 @@ export default function SignUp() {
           </button>
         </form>
         <div className='w-100 text-center mt-3'>
-            Already Have an Account? Log In
+            Already Have an Account? {<Link to='/sign-in'>Log In</Link>}
         </div>
       </div>
     </section>

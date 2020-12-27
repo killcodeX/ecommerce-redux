@@ -9,7 +9,7 @@ import {
     VERIFY_SUCCESS,
   } from "./actionConstant";
 
-  import { auth } from "../../firebase/firebase";
+  import { myFirebase } from "../../firebase/firebase";
 
 //   actions
 
@@ -64,7 +64,8 @@ const requestLogin = () => {
   
   export const loginUser = (email, password) => dispatch => {
     dispatch(requestLogin());
-    auth()
+    myFirebase
+      .auth()
       .signInWithEmailAndPassword(email, password)
       .then(user => {
         dispatch(receiveLogin(user));
@@ -77,7 +78,8 @@ const requestLogin = () => {
   
   export const logoutUser = () => dispatch => {
     dispatch(requestLogout());
-    auth()
+    myFirebase
+      .auth()
       .signOut()
       .then(() => {
         dispatch(receiveLogout());
@@ -90,7 +92,8 @@ const requestLogin = () => {
   
   export const verifyAuth = () => dispatch => {
     dispatch(verifyRequest());
-    auth
+    myFirebase
+      .auth()
       .onAuthStateChanged(user => {
         if (user !== null) {
           dispatch(receiveLogin(user));
@@ -98,4 +101,3 @@ const requestLogin = () => {
         dispatch(verifySuccess());
       });
   };
-  
