@@ -21,6 +21,7 @@ const initialState = {
   SignUpError: false,
   logoutError: false,
   isAuthenticated: false,
+  errorMessage: '',
   user: {},
 };
 
@@ -41,11 +42,13 @@ const AuthReducer = (state = initialState, action) => {
         user: action.user,
       };
     case LOGIN_FAILURE:
+      alert(action.message)
       return {
         ...state,
         isLoggingIn: false,
         isAuthenticated: false,
         loginError: true,
+        errorMessage: action.message
       };
 
       case SIGNUP_REQUEST:
@@ -62,11 +65,13 @@ const AuthReducer = (state = initialState, action) => {
         user: action.user,
       };
     case  SIGNUP_FAILURE:
+      alert(action.message)
       return {
         ...state,
         isLoggingIn: false,
         isAuthenticated: false,
         SignUpError: true,
+        errorMessage: action.message
       };
       case LOGOUT_REQUEST:
         return {
@@ -82,11 +87,13 @@ const AuthReducer = (state = initialState, action) => {
           user: {},
         };
       case LOGOUT_FAILURE:
+        alert(action.message)
         return {
           ...state,
           isLoggingIn: false,
           isAuthenticated: false,
           loginError: true,
+          errorMessage: action.message
         };
 
     default:

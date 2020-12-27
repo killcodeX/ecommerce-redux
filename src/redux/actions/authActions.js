@@ -30,9 +30,10 @@ const receiveLogin = (user) => {
   };
 };
 
-const loginError = () => {
+const loginError = (message) => {
   return {
     type: LOGIN_FAILURE,
+    message
   };
 };
 
@@ -51,9 +52,10 @@ const receiveSignUp = (user) => {
   };
 };
 
-const signUpError = () => {
+const signUpError = (message) => {
   return {
     type: SIGNUP_FAILURE,
+    message
   };
 };
 
@@ -71,9 +73,10 @@ const receiveLogout = () => {
   };
 };
 
-const logoutError = () => {
+const logoutError = (message) => {
   return {
     type: LOGOUT_FAILURE,
+    message
   };
 };
 
@@ -101,7 +104,7 @@ export const loginUser = (email, password) => (dispatch) => {
     })
     .catch((error) => {
       console.log(error);
-      dispatch(loginError());
+      dispatch(loginError(error.message));
     });
 };
 
@@ -115,7 +118,7 @@ export const signUpUser = (email, password) => (dispatch) => {
     })
     .catch((error) => {
       console.log(error);
-      dispatch(signUpError());
+      dispatch(signUpError(error.message));
     });
 };
 
@@ -130,7 +133,7 @@ export const logoutUser = () => (dispatch) => {
     })
     .catch((error) => {
       console.log(error);
-      dispatch(logoutError());
+      dispatch(logoutError(error.message));
     });
 };
 

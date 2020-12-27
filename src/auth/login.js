@@ -5,8 +5,6 @@ import { Redirect, Link } from "react-router-dom";
 
 export default function Login() {
   const dispatch = useDispatch();
-  const isLoggingIn = useSelector((state) => state.Auth.isLoggingIn);
-  const loginError = useSelector((state) => state.Auth.loginError);
   const isAuthenticated = useSelector((state) => state.Auth.isAuthenticated);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -16,6 +14,8 @@ export default function Login() {
     console.log(email, password)
     dispatch(loginUser(email, password));
   };
+
+  
 
   if (isAuthenticated) {
     return <Redirect to="/" />;

@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { signUpUser } from "../redux/actions/authActions";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function SignUp() {
   const dispatch = useDispatch();
+  const isAuthenticated = useSelector((state) => state.Auth.isAuthenticated);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -18,6 +19,10 @@ export default function SignUp() {
       alert("Password did not match");
     }
   };
+
+  if (isAuthenticated) {
+    return <Redirect to="/" />;
+  }
 
   return (
     <section className="section height-100 brdr">
