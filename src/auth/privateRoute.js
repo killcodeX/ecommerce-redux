@@ -1,17 +1,15 @@
 import React from "react";
-import { Route, Redirect } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { useAuth0 } from '@auth0/auth0-react';
+import { Route } from "react-router-dom";
+import { withAuthenticationRequired } from "@auth0/auth0-react";
+import { Spinner } from "../components";
 
-export default function PrivateRoute({ component: Component, ...rest }) {
-  const { isAuthenticated, user } = useAuth0();
-  const isUser = isAuthenticated && user;
-  return (
-    <Route
-      {...rest}
-      render={() => {
-        return isUser ? <Component/> : <Redirect to='/login'></Redirect>;
-      }}
-    ></Route>
-  );
-}
+const ProtectedRoute = ({ component, ...args }) => (
+  <Route
+    component={withAuthenticationRequired(component, {
+      onRedirecting: () => <Spinner />,
+    })}
+    {...args}
+  />
+);
+
+export default ProtectedRoute;
