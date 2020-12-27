@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import {Link} from 'react-router-dom'
-import { userLogin } from "../redux/actions/actions";
+import { Link } from "react-router-dom";
+import { signUpUser } from "../redux/actions/authActions";
 import { useDispatch } from "react-redux";
 
 export default function SignUp() {
@@ -11,8 +11,12 @@ export default function SignUp() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(email)
-    console.log(password)
+    console.log(email, password, confirmPassword);
+    if (password === confirmPassword) {
+      dispatch(signUpUser(email, password));
+    } else {
+      alert("Password did not match");
+    }
   };
 
   return (
@@ -61,8 +65,8 @@ export default function SignUp() {
             Sign Up
           </button>
         </form>
-        <div className='w-100 text-center mt-3'>
-            Already Have an Account? {<Link to='/sign-in'>Log In</Link>}
+        <div className="w-100 text-center mt-3">
+          Already Have an Account? {<Link to="/sign-in">Log In</Link>}
         </div>
       </div>
     </section>
