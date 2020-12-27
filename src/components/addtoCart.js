@@ -1,19 +1,28 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { buyProduct } from "../redux/actions/actions";
+import Notification from "./notification";
 
 export default function AddtoCart(props) {
+  const [show, setShow] = useState(false);
   const dispatch = useDispatch();
   const { id } = props;
   const [addCart, setAddCart] = useState(0);
 
   const add = () => {
-    const data = {
-      id: id,
-      numberOfProduct: addCart,
-    };
-    dispatch(buyProduct(data));
-    setAddCart(0);
+
+    if(addCart > 0){
+      const data = {
+        id: id,
+        numberOfProduct: addCart,
+      };
+      dispatch(buyProduct(data));
+      setAddCart(0);
+      setShow(!show);
+    } else {
+      alert('Please add Product !!')
+    }
+    
   };
   return (
     <div className="card-down">
@@ -40,6 +49,7 @@ export default function AddtoCart(props) {
       >
         <i className="fas fa-cart-plus"></i> Add To Cart
       </button>
+      <Notification show={show} setShow={setShow} />
     </div>
   );
 }

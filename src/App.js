@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -11,6 +11,12 @@ const Routing = () => {
   const history = useHistory();
   const isAuthenticated = useSelector((state) => state.Auth.isAuthenticated);
   const isVerifying = useSelector((state) => state.Auth.isVerifying);
+
+  useEffect(() => {
+    if(!isAuthenticated){
+      history.push('/sign-in')
+    }
+  }, [isAuthenticated])
 
   return (
     <Switch>
