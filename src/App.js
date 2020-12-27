@@ -14,16 +14,16 @@ const Routing = () => {
 
   useEffect(() => {
     if (loggedIn) {
-      history.push("/dashboard");
-    } else{
-      history.push("/sign-in");
+      history.push("/product");
+    } else {
+      history.push('/sign-in')
     }
   }, [loggedIn]);
   return (
     <Switch>
       {/* <Redirect exact from="/" to={loggedIn ? '/dashboard' : '/sign-in'} /> */}
       <Route exact path="/sign-in" component={Login} />
-      <Route exact path="/dashboard" component={MainPage} />
+      <Route exact path="/product" component={MainPage} />
       <Route exact path="/product/:id" component={ProductPage} />
       <Route exact path="/cart" component={Cart} />
       <Route component={Error} />

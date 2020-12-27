@@ -14,7 +14,7 @@ export default function Header() {
   return (
     <nav className="navbar fixed navbar-expand-lg navbar-light">
       <div className="container">
-        <Link className="navbar-brand" to="/">
+        <Link className="navbar-brand" to="/product">
           YourShop
         </Link>
         <div className="ml-auto">
