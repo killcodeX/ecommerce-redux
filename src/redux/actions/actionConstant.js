@@ -15,6 +15,8 @@ export const SIGNUP_FAILURE = "SIGNUP_FAILURE";
 export const VERIFY_REQUEST = "VERIFY_REQUEST";
 export const VERIFY_SUCCESS = "VERIFY_SUCCESS";
 
+export const VERIFY_LOCAL_STORAGE = "VERIFY_LOCAL_STORAGE";
+
 
 // for products
 export const GetProducts = 'GET_PRODUCTS';

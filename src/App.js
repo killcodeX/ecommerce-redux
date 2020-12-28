@@ -2,17 +2,20 @@ import React, { useEffect } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 import { useHistory } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { Login, Error, ProtectedRoute, SignUp } from "./auth";
 import { MainPage, ProductPage, Cart } from "./Pages";
 import { Header, Footer } from "./components";
+import {verifyStorage} from './redux/actions/authActions';
 
 const Routing = () => {
   const history = useHistory();
+  const dispatch = useDispatch()
   const isAuthenticated = useSelector((state) => state.Auth.isAuthenticated);
   const isVerifying = useSelector((state) => state.Auth.isVerifying);
 
   useEffect(() => {
+    dispatch(verifyStorage())
     if(!isAuthenticated){
       history.push('/sign-in')
     }

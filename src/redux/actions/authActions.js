@@ -10,6 +10,7 @@ import {
   SIGNUP_FAILURE,
   VERIFY_REQUEST,
   VERIFY_SUCCESS,
+  VERIFY_LOCAL_STORAGE
 } from "./actionConstant";
 
 import { myFirebase } from "../../firebase/firebase";
@@ -17,6 +18,13 @@ import { myFirebase } from "../../firebase/firebase";
 //   actions
 
 // for login
+
+export const verifyStorage = () => {
+  return {
+    type: VERIFY_LOCAL_STORAGE,
+  };
+};
+
 const requestLogin = () => {
   return {
     type: LOGIN_REQUEST,
