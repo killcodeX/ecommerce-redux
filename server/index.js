@@ -2,7 +2,7 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import mongoose from 'mongoose'
 import cors from 'cors';
-import postRoutes from './routes/post.js'
+import productRoutes from './routes/product.js'
 
 const app = express()
 
@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({limit: "30mb", extended: true}))
 app.use(cors())
 
 // sholud be called after initializing cors to avoid cors origin issue
-app.use('/posts', postRoutes)
+app.use('/products', productRoutes)
 
 // for database
 
