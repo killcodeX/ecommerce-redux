@@ -34,7 +34,7 @@ export const deleteProduct = async (req, res) => {
   if (!mongoose.Types.ObjectId.isValid(id))
     return res.status(404).send("No Code Snippet with that Id");
 
-  await PostMessage.findByIdAndRemove(id);
+  await ProductMessage.findByIdAndRemove(id);
 
   res.json({ message: "Post Deleted Successfully" });
 }
