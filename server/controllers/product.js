@@ -2,7 +2,13 @@ import ProductMessage from "../models/productSchema.js";
 import mongoose from "mongoose";
 
 export const getProduct = async (req, res) => {
-  res.send('This Works')
+  try {
+    const product = await ProductMessage.find();
+    console.log(product);
+    res.status(200).json(product);
+  } catch (error) {
+    res.status(404).json({ message: error.message });
+  }
 };
 
 export const displaySingleProduct = async (req, res) =>{

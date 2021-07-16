@@ -8,5 +8,6 @@ const router = express.Router()
 router.get('/', getProduct)
 router.get('/:id', displaySingleProduct)
 router.post('/', addProduct)
+router.delete()
 
 export default router;
