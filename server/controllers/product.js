@@ -27,3 +27,14 @@ export const addProduct = async (req, res) => {
   }
 
 }
+
+export const deleteProduct = async (req, res) => {
+  const { id } = req.params;
+  console.log('id received in backend', id)
+  if (!mongoose.Types.ObjectId.isValid(id))
+    return res.status(404).send("No Code Snippet with that Id");
+
+  await PostMessage.findByIdAndRemove(id);
+
+  res.json({ message: "Post Deleted Successfully" });
+}
