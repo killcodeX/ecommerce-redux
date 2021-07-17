@@ -11,9 +11,20 @@ export const getProduct = async (req, res) => {
   }
 };
 
-export const displaySingleProduct = async (req, res) =>{
+export const displaySingleProduct = async (req, res) => {
+  const { id } = req.params;
 
-}
+  console.log('id received in backend', id)
+  if (!mongoose.Types.ObjectId.isValid(id))
+    return res.status(404).send("No Code Snippet with that Id");
+  try {
+    const singleProduct = await ProductMessage.findById(id);
+    console.log(singleProduct);
+    res.status(200).json(singleProduct);
+  } catch (error) {
+    res.status(404).json({ message: error.message });
+  }
+};
 
 export const addProduct = async (req, res) => {
   const body = req.body;
@@ -25,13 +36,12 @@ export const addProduct = async (req, res) => {
   } catch (error) {
     res.status(404).json({ message: error.message });
   }
-
-}
+};
 
 export const updatePost = async (req, res) => {
   const { id: _id } = req.params;
   const post = req.body;
-  console.log('data received', post)
+  console.log("data received", post);
   if (!mongoose.Types.ObjectId.isValid(_id))
     return res.status(404).send("No Code Snippet with that Id");
 
@@ -40,16 +50,15 @@ export const updatePost = async (req, res) => {
   });
 
   res.json(update);
-
 };
 
 export const deleteProduct = async (req, res) => {
   const { id } = req.params;
-  console.log('id received in backend', id)
+  console.log("id received in backend", id);
   if (!mongoose.Types.ObjectId.isValid(id))
     return res.status(404).send("No Code Snippet with that Id");
 
   await ProductMessage.findByIdAndRemove(id);
 
   res.json({ message: "Post Deleted Successfully" });
-}
+};

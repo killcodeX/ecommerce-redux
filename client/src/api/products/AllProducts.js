@@ -9,8 +9,6 @@ const url = 'http://localhost:5000/products'
   } catch (error) {
     console.log("Error while getting data", error);
   }
-
-  return [1, 2];
 }
 
 

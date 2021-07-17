@@ -1,16 +1,12 @@
 import axios from "axios";
+
+const url = 'http://localhost:5000/products'
+
 export default async function getSingleProductsAPI(id) {
-  var config = {
-    method: "get",
-    url: `https://fakestoreapi.com/products/${id}`,
-  };
-
   try {
-    const request = await axios(config);
-    const { data: response } = request;
-
-    return response;
+    const { data } = await axios.get(`${url}/${id}`);
+    return data;
   } catch (error) {
-    console.log(error);
+    console.log("Error while getting data", error);
   }
 }

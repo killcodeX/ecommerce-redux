@@ -16,8 +16,8 @@ export default function DisplayProducts() {
       <section className="section height-100">
         <div className="container">
           <div className="row">
-            {data.map((d, i) => {
-              return <Product data={d} key={i} />;
+            {data.map((d) => {
+              return <Product data={d} key={d._id} />;
             })}
           </div>
         </div>
