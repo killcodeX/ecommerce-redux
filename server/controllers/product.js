@@ -4,7 +4,7 @@ import mongoose from "mongoose";
 export const getProduct = async (req, res) => {
   try {
     const product = await ProductMessage.find();
-    console.log(product);
+    //console.log(product);
     res.status(200).json(product);
   } catch (error) {
     res.status(404).json({ message: error.message });
@@ -17,7 +17,7 @@ export const displaySingleProduct = async (req, res) =>{
 
 export const addProduct = async (req, res) => {
   const body = req.body;
-  console.log('data got in backend',body)
+  //console.log('data got in backend',body)
   const newProduct = new ProductMessage(body);
   try {
     await newProduct.save();
@@ -27,6 +27,21 @@ export const addProduct = async (req, res) => {
   }
 
 }
+
+export const updatePost = async (req, res) => {
+  const { id: _id } = req.params;
+  const post = req.body;
+  console.log('data received', post)
+  if (!mongoose.Types.ObjectId.isValid(_id))
+    return res.status(404).send("No Code Snippet with that Id");
+
+  const update = await ProductMessage.findByIdAndUpdate(_id, post, {
+    new: true,
+  });
+
+  res.json(update);
+
+};
 
 export const deleteProduct = async (req, res) => {
   const { id } = req.params;
