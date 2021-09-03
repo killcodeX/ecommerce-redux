@@ -14,16 +14,22 @@ export default function Login() {
     dispatch(requestLogin(email, password));
   };
 
-  
-
   if (isAuthenticated) {
     return <Redirect to="/" />;
   }
 
   return (
-    <section className="section height-100 brdr">
+    <section
+      style={{
+        backgroundImage: `url(${process.env.PUBLIC_URL + "/outdoor.png"})`,
+        backgroundPosition:'center',
+        backgroundRepeat:"no-repeat",
+        backgroundSize: "contain",
+      }}
+      className="section height-100 brdr"
+    >
       <div className="card shadow login login-card">
-        <img className="user-img" src="/user.jpg" alt="user" />
+        <div className="auth-heading">Login Account</div>
         <form onSubmit={handleSubmit}>
           <div className="form-group pt-4">
             <label htmlFor="exampleInputEmail1">Email address</label>
@@ -55,8 +61,8 @@ export default function Login() {
             Login
           </button>
         </form>
-        <div className='w-100 text-center mt-3'>
-            Don't Have an Account? {<Link to='/sign-up'>Sign Up</Link>}
+        <div className="w-100 text-center mt-3">
+          Don't Have an Account? {<Link to="/sign-up">Sign Up</Link>}
         </div>
       </div>
     </section>

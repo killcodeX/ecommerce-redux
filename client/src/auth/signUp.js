@@ -1,31 +1,65 @@
 import React, { useState } from "react";
 import { Link, Redirect } from "react-router-dom";
 import { requestSignUp } from "../redux/actions/authActions";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 export default function SignUp() {
   const dispatch = useDispatch();
-  const isAuthenticated = useSelector((state) => state.Auth.isAuthenticated);
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const [mobile, setMobile] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(email, password, confirmPassword);
-      dispatch(requestSignUp(email, password));
+    console.log(name, email, password, mobile);
+    //dispatch(requestSignUp(email, password));
   };
 
-  if (isAuthenticated) {
-    return <Redirect to="/" />;
-  }
-
   return (
-    <section className="section height-100 brdr">
+    <section
+      style={{
+        backgroundImage: `url(${process.env.PUBLIC_URL + "/outdoor.png"})`,
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "contain",
+      }}
+      className="section height-100 brdr"
+    >
       <div className="card shadow login login-card">
-        <img className="user-img" src="/user.jpg" alt="user" />
+        <div className="auth-heading">Create Account</div>
         <form onSubmit={handleSubmit}>
-          <div className="form-group pt-4">
+          <div className="row pt-4">
+            <div className="col-sm-6">
+              <div className="form-group">
+                <label htmlFor="name">Enter Full Name</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="name"
+                  aria-describedby="emailHelp"
+                  placeholder="Enter email"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                />
+              </div>
+            </div>
+            <div className="col-sm-6">
+              <div className="form-group">
+                <label htmlFor="mobile">Phone no</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="mobile"
+                  placeholder="mobile no"
+                  value={mobile}
+                  onChange={(e) => setMobile(e.target.value)}
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="form-group">
             <label htmlFor="exampleInputEmail1">Email address</label>
             <input
               type="email"
@@ -49,17 +83,6 @@ export default function SignUp() {
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="exampleInputPassword1">Confirm Password</label>
-            <input
-              type="password"
-              className="form-control"
-              id="exampleInputPassword1"
-              placeholder="Password"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
             />
           </div>
           <button type="submit" className="btn btn-primary">

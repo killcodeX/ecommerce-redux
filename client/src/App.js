@@ -42,7 +42,6 @@ function App() {
     <Router>
       <Header />
       <Routing />
-      <Footer />
     </Router>
   );
 }
