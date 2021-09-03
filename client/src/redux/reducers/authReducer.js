@@ -1,120 +1,60 @@
 import {
   LOGIN_REQUEST,
-  LOGIN_SUCCESS,
-  LOGIN_FAILURE,
   LOGOUT_REQUEST,
-  LOGOUT_SUCCESS,
-  LOGOUT_FAILURE,
   SIGNUP_REQUEST,
-  SIGNUP_SUCCESS,
-  SIGNUP_FAILURE,
-  VERIFY_REQUEST,
-  VERIFY_SUCCESS,
   VERIFY_LOCAL_STORAGE,
 } from "../actions/actionConstant";
 
 import { saveState, loadState } from "../../helpers/localStorage";
 
 const initialState = {
-  isLoggingIn: false,
-  isSignUp: false,
-  isLoggingOut: false,
-  isVerifying: false,
-  loginError: false,
-  SignUpError: false,
-  logoutError: false,
-  isAuthenticated: false,
-  errorMessage: "",
+  isAuthenticated: loadState("ShopLoggedIn") || false ,
   user: {},
+  token:""
 };
 
 // Reducers
 const AuthReducer = (state = initialState, action) => {
   switch (action.type) {
     case LOGIN_REQUEST:
+      saveState("ShopLoggedIn", true);
+      saveState("ShopUser", action.user);
+      saveState("ShopToken", action.token);
       return {
         ...state,
-        isLoggingIn: true,
-        loginError: false,
-      };
-    case LOGIN_SUCCESS:
-      saveState("firebaseLoggedIn", true);
-      saveState("firebaseUser", action.user);
-      return {
-        ...state,
-        isLoggingIn: false,
         isAuthenticated: true,
         user: action.user,
-      };
-    case LOGIN_FAILURE:
-      alert(action.message);
-      return {
-        ...state,
-        isLoggingIn: false,
-        isAuthenticated: false,
-        loginError: true,
-        errorMessage: action.message,
-      };
-
+        token: action.token
+      }
     case SIGNUP_REQUEST:
+      saveState("ShopLoggedIn", true);
+      saveState("ShopUser", action.user);
+      saveState("ShopToken", action.token);
       return {
         ...state,
-        isSignUp: true,
-        SignUpError: false,
-      };
-    case SIGNUP_SUCCESS:
-      saveState("firebaseLoggedIn", true);
-      saveState("firebaseUser", action.user);
-      return {
-        ...state,
-        isSignUp: false,
         isAuthenticated: true,
         user: action.user,
-      };
-    case SIGNUP_FAILURE:
-      alert(action.message);
-      return {
-        ...state,
-        isLoggingIn: false,
-        isAuthenticated: false,
-        SignUpError: true,
-        errorMessage: action.message,
-      };
+        token: action.token
+      }
     case LOGOUT_REQUEST:
+      saveState("ShopLoggedIn", false);
+      saveState("ShopUser", {});
+      saveState("ShopToken", "");
       return {
         ...state,
-        isLoggingOut: true,
-        loginError: false,
-      };
-    case LOGOUT_SUCCESS:
-      saveState("firebaseLoggedIn", false);
-      saveState("firebaseUser", {});
-      return {
-        ...state,
-        isLoggingOut: false,
         isAuthenticated: false,
         user: {},
+        token: ""
       };
-    case LOGOUT_FAILURE:
-      alert(action.message);
-      return {
-        ...state,
-        isLoggingIn: false,
-        isAuthenticated: false,
-        loginError: true,
-        errorMessage: action.message,
-      };
-
     case VERIFY_LOCAL_STORAGE:
-       const auth = loadState('firebaseLoggedIn')
-       const user = loadState('firebaseUser')
-       console.log(auth, user)
+       const auth = loadState("ShopLoggedIn")
+       const user = loadState("ShopUser")
+      const token = loadState("ShopToken")
       return {
         ...state,
-        isLoggingIn: false,
         isAuthenticated: auth,
-        loginError: true,
         user: user,
+        token: token
       };
 
     default:

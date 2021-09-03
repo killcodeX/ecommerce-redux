@@ -16,10 +16,7 @@ const Routing = () => {
 
   useEffect(() => {
     dispatch(verifyStorage())
-    if(!isAuthenticated){
-      history.push('/sign-in')
-    }
-  }, [isAuthenticated])
+  }, [])
 
   return (
     <Switch>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, Redirect } from "react-router-dom";
-import { signUpUser } from "../redux/actions/authActions";
+import { requestSignUp } from "../redux/actions/authActions";
 import { useDispatch, useSelector } from "react-redux";
 
 export default function SignUp() {
@@ -13,11 +13,7 @@ export default function SignUp() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(email, password, confirmPassword);
-    if (password === confirmPassword) {
-      dispatch(signUpUser(email, password));
-    } else {
-      alert("Password did not match");
-    }
+      dispatch(requestSignUp(email, password));
   };
 
   if (isAuthenticated) {

@@ -39,8 +39,9 @@ const ProductReducer = (state = initialState, action) => {
       };
 
     case CartProduct:
+      console.log('state -->',state.buyProduct)
       const totalItemBuy = state.Products.filter((data1) =>
-        state.buyProduct.some((data2) => data1.id === data2.id)
+        state.buyProduct.some((data2) => data1._id === data2._id)
       );
       return {
         ...state,

@@ -30,12 +30,13 @@ export default function Cart() {
             <hr />
             {totalItem.length !== 0 ? (
               totalItem.map((Data) => {
+                console.log(Data)
                 const totalSelected = buyProduct.filter(
-                  (item) => item.id === Data.id
+                  (item) => item._id === Data._id
                 );
                 return (
                   <CartCard
-                    key={Data.id}
+                    key={Data._id}
                     Data={Data}
                     totalSelected={totalSelected}
                   />

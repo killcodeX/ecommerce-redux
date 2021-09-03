@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { loginUser } from "../redux/actions/authActions";
+import { requestLogin } from "../redux/actions/authActions";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, Link } from "react-router-dom";
 
@@ -11,8 +11,7 @@ export default function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(email, password)
-    dispatch(loginUser(email, password));
+    dispatch(requestLogin(email, password));
   };
 
   

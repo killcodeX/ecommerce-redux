@@ -7,6 +7,7 @@ export default function ProductPage(props) {
   const dispatch = useDispatch();
   const Data = useSelector((state) => state.Products.Product);
   useEffect(() => {
+    console.log('id from params',props.match.params.id)
     dispatch(getSingleProduct(props.match.params.id));
   }, [props.match.params.id]);
 
@@ -33,7 +34,7 @@ export default function ProductPage(props) {
                 {"$" + Data.price}
               </p>
               {/* <div className="card-down"> */}
-                <AddToCart id={Data.id} />
+                <AddToCart id={Data._id} />
               {/* </div> */}
             </div>
           </div>
